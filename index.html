@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Events monitor</title></head>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+	  var socket = io();
+	  socket.on('testerEvent', function(data){
+
+	  	document.getElementById("blockDet").value = data.description;
+	  	//document.write(data.description)
+
+	  });
+
+	  socket.on('testerEventBlock', function(data){
+	  	document.getElementById("newBlock").value = data.description;
+	  	//document.write(data.description)
+
+	  });
+
+
+	  //socket.on('testerEvent', function(data){
+
+	  	//console.log(data);
+	 // });
+	</script>
+	<body>
+	<h2> Events monitoring <h2>
+	<input type="text" id="blockDet">  <br><br>
+	<input type="text" id="newBlock">
+
+	</body>
+</html>
